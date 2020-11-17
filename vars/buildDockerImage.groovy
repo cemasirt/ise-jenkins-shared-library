@@ -1,5 +1,5 @@
 /*
-@param artifactoryRegistry example 'art-010-gp-ociso-image'
+@param artifactoryRegistry example 'gp-ociso-image'
 @param pushImageName The image name we will Push to our repository
 @param pushImageTag The image tag we will apply to the image we Push to our repository
 @param dockerFile The Docker file we will use to build the image we will Push to our repository
