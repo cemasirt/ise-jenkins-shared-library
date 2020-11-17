@@ -8,7 +8,7 @@ def call(
     String artifactoryRegistry,
     String pushImageName,
     String pushImageTag,
-    String dockerFile,
+    String dockerFile
 ) {
     /*
     Build the Docker image using the Docker file name and tag as defined in the associated variables.
