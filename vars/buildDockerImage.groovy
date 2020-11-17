@@ -3,15 +3,12 @@
 @param pushImageName The image name we will Push to our repository
 @param pushImageTag The image tag we will apply to the image we Push to our repository
 @param dockerFile The Docker file we will use to build the image we will Push to our repository
-
-
-    // String artifactoryRegistry,
-    // String pushImageName,
-    // String pushImageTag,
-    // String dockerFile,
-    
 */
 def call(
+    String artifactoryRegistry,
+    String pushImageName,
+    String pushImageTag,
+    String dockerFile,
 ) {
     /*
     Build the Docker image using the Docker file name and tag as defined in the associated variables.
@@ -24,7 +21,6 @@ def call(
         if caching is enabled.
     */
     script {
-        // docker.build("${artifactoryRegistry}/${pushImageName}:${pushImageTag}", "-f ${dockerFile} --no-cache --pull ./")
-        echo "Build Image"
+        docker.build("${artifactoryRegistry}/${pushImageName}:${pushImageTag}", "-f ${dockerFile} --no-cache --pull ./")
     }
 }
