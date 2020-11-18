@@ -14,7 +14,7 @@ def call(
 ) {
     script {
         def image = "${artifactoryRegistry}/${pushImageName}:${pushImageTag}"
-        //Twist Lock
+        //Twist Lock Scan
         withCredentials([usernamePassword(credentialsId:"${twistlockCredID}", passwordVariable: 'PASS', usernameVariable: 'USER')]) {
             echo "--- Twistlock Scan ---"
             echo "getting twistlock CLI"
