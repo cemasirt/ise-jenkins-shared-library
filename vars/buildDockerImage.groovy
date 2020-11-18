@@ -21,6 +21,7 @@ def call(
         if caching is enabled.
     */
     script {
+        echo "--- Building docker image ---"
         docker.build("${artifactoryRegistry}/${pushImageName}:${pushImageTag}", "-f ${dockerFile} --no-cache --pull ./")
     }
 }
