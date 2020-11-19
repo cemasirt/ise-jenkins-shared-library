@@ -1,8 +1,4 @@
 def call(
-    String artifactoryRegistry,
-    String pushImageName,
-    String pushImageTag,
-    String dockerFile
 ) {
     pipeline {
         //This is where we request a build agent from Jenkins.
