@@ -12,6 +12,7 @@
 def call(
     String artifactoryURL,
     String artifactoryRegistry,
+    String artifactoryRegistryCredID,
     String pushImageName,
     String pushImageTag,
     String dockerFile,
