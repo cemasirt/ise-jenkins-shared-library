@@ -104,6 +104,7 @@ def call(
                 when {
                     anyOf {
                         branch 'master'
+                        branch 'main'
                         tag ''
                     }
                 }
