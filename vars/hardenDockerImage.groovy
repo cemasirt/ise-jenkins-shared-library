@@ -20,6 +20,7 @@ def call(
     String twistlockCredID,
     String anchoreURL,
     String anchoreCredID
+    String beforeClousureBody
 ) {
     pipeline {
         //This is where we request a build agent from Jenkins.
@@ -30,6 +31,7 @@ def call(
             }
         }
         stages {
+            beforeClousureBody()
         // In this stage we will build the Docker image using the Dockerfile defined in $dockerFile.
             stage('Build Image') {
                 // Run a step conditionally. You can restrict by branches and tags.
@@ -67,11 +69,11 @@ def call(
                         withCredentials([usernamePassword(credentialsId:"${twistlockCredID}", passwordVariable: 'PASS', usernameVariable: 'USER')]) {
                             echo "--- Twistlock Scan ---"
                             echo "getting twistlock CLI"
-                            sh "curl -L -k -u ${USER}:${PASS} ${twistlockURL}/api/v1/util/twistcli > twistcli; chmod a+x twistcli"
-                            sh "chmod +x ./twistcli"
+                            sh "curl -L -k -u ${USER}:${PASS} ${twistlockURL}/api/v1/util/twistcli?project=GSA%20Tenants > twistcli; chmod a+x twistcli"
+                            sh "chmod a+x ./twistcli"
                             sh "sleep 1"
                             sh "./twistcli -v"
-                            sh """./twistcli images scan --ci --details --address ${twistlockURL} -u ${USER} -p '${PASS}' ${dockerImage} | sed -e 's/\\=\\=\\=\\=\\=DATA\\[.*//g' """
+                            sh """./twistcli images scan --project "GSA Tenants" --ci --details --address ${twistlockURL} -u ${USER} -p '${PASS}' ${dockerImage} | sed -e 's/\\=\\=\\=\\=\\=DATA\\[.*//g' """
                             echo "Removing twistcli..."
                             sh "rm -f ./twistcli"
                         }
