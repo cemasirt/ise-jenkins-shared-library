@@ -1,5 +1,5 @@
 /*
-@param artifactoryURL The URL of your Docker Image artifactory service provider URL, example 'https://example.com/artifactory/1'
+@param artifactoryURL The URL of your Docker Image artifactory service provider URL, example https://example.com/artifactory/1
 @param artifactoryRegistry The registry name, in most of case it is your repository name, example 'gp-ociso-image'
 @param artifactoryRegistryCredID The Jenkins credential ID for artifactory authentication, example 'fcs_ise_artifactory'
 @param pushImageName The image name we will Push to our repository
