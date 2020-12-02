@@ -23,4 +23,4 @@ Parameters reference:
 - @param ``anchoreURL`` The GSA anchoreURL, example: http://111.111.111.111:12345/
 - @param ``anchoreCredID`` The Jenkins credential ID for anchore API call
 
-Source Code: `./vars/hardenDockerImage.groovy`_
+Source Code: `hardenDockerImage.groovy <./vars/hardenDockerImage.groovy>`_
