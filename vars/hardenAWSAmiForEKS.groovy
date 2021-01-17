@@ -1,3 +1,8 @@
+/*
+This pipeline script is for hardening an AWS AMI for EKS. It simply run packer build in CI environment. The packer build logic primarily is a ansible playbook running on remote EC2 localhost.
+
+Example usage: https://github.com/GSA/odp-packer-amazon-linux2-eks
+*/
 def call () {
     pipeline {
         agent {
@@ -23,7 +28,7 @@ def call () {
                 steps {
                     script {
                         sh "pwd"
-                        sh "aws sts get-caller-identity"
+                        sh "aws sts get-caller-identity" // verify the build runtime has sufficent previledge in its IAM Role
                         sh "echo JENKINS_HOME=${JENKINS_HOME}"
                         sh "bash ./packer/run-packer-build.sh"
                     }
