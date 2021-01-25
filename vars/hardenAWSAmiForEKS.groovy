@@ -9,7 +9,7 @@ def call () {
             // use a container with aws-cli, ansible, packer, python pre-installed
             // reference: https://www.jenkins.io/doc/book/pipeline/syntax/
             docker { 
-                image 'sanhe/cicd:aws-ultimate'
+                image 'sanhe/cicd:aws-ultimate@sha256:7cdb672755b8e743e9f35d2719b0111f9750c92682baddaf2670f5ad065d7164'
                 args '-e JENKINS_HOME=$JENKINS_HOME'
             }
         }
