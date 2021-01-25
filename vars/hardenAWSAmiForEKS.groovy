@@ -23,6 +23,8 @@ def call () {
                         sh "which ansible"
                         sh "which packer"
                         sh "which python"
+                        sh "which pip"
+                        sh "pip list"
                     }
                 }
             }
