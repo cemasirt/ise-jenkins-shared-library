@@ -11,7 +11,7 @@ def call () {
             docker { 
                 image 'sanhe/cicd:aws-ultimate@sha256:7cdb672755b8e743e9f35d2719b0111f9750c92682baddaf2670f5ad065d7164'
                 registryUrl 'https://registry.hub.docker.com'
-                registryCredentialId 'rjlupinek-dockerhub'
+                registryCredentialsId 'rjlupinek-dockerhub'
                 args '-e JENKINS_HOME=$JENKINS_HOME'
             }
         }
