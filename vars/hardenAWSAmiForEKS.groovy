@@ -12,7 +12,7 @@ def call () {
                 image 'sanhe/cicd:aws-ultimate@sha256:7cdb672755b8e743e9f35d2719b0111f9750c92682baddaf2670f5ad065d7164'
                 registryUrl 'https://registry.hub.docker.com'
                 registryCredentialsId 'rjlupinek-dockerhub'
-                args '-e JENKINS_HOME=$JENKINS_HOME'
+                args '-e JENKINS_HOME=$JENKINS_HOME -e AWS_DEFAULT_REGION="us-east-1"'
             }
         }
         stages {
