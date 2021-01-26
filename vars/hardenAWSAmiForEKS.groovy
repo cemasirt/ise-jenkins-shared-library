@@ -3,6 +3,8 @@ This pipeline script is for hardening an AWS AMI for EKS. It simply run packer b
 
 Example usage: https://github.com/GSA/odp-packer-amazon-linux2-eks
 */
+def runPackerShellScript = libraryResource 'hardenAMI/run-packer.sh'
+
 def call () {
     pipeline {
         agent {
@@ -27,11 +29,13 @@ def call () {
             }
             stage('run packer build') {
                 steps {
+                    writeFile file:'run-packer.sh', text:runPackerShellScript
                     script {
                         sh "pwd"
-                        sh "aws sts get-caller-identity" // verify the build runtime has sufficent previledge in its IAM Role
-                        sh "echo JENKINS_HOME=${JENKINS_HOME}"
-                        sh "bash ./packer/run-packer-build.sh"
+                        sh "ls"
+                        // sh "aws sts get-caller-identity" // verify the build runtime has sufficent previledge in its IAM Role
+                        // sh "echo JENKINS_HOME=${JENKINS_HOME}"
+                        // sh "bash ./packer/run-packer-build.sh"
                     }
                 }
             }
