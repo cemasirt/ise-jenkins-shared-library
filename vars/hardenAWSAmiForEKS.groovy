@@ -38,7 +38,7 @@ def call () {
                     script {
                         sh "pwd"
                         sh "ls"
-                        sh "packer build -var-file ./packer/packer-var-file.json ./packer/packer.json"
+                        // sh "packer build -var-file ./packer/packer-var-file.json ./packer/packer.json"
                     }
                 }
             }
