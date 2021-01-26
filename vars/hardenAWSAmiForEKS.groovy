@@ -1,6 +1,15 @@
 /*
 This pipeline script is for hardening an AWS AMI for EKS. It simply run packer build in CI environment. The packer build logic primarily is a ansible playbook running on remote EC2 localhost.
 
+Assuming that the AMI hardening project having following code structure:
+
+/ansible
+/ansible/playbook.yml
+/packer
+/packer/packer-var-file.json
+/packer/build_packer_var_file.py
+/packer/packer.json
+
 Example usage: https://github.com/GSA/odp-packer-amazon-linux2-eks
 */
 def call () {
