@@ -18,7 +18,8 @@ def call () {
             // use a container with aws-cli, ansible, packer, python pre-installed
             // reference: https://www.jenkins.io/doc/book/pipeline/syntax/
             docker {
-                image 'sanhe/cicd:aws-ultimate@sha256:7cdb672755b8e743e9f35d2719b0111f9750c92682baddaf2670f5ad065d7164'
+                // image 'sanhe/cicd:aws-ultimate@sha256:7cdb672755b8e743e9f35d2719b0111f9750c92682baddaf2670f5ad065d7164'
+                image 'hashicorp/packer'
                 registryUrl 'https://registry.hub.docker.com'
                 registryCredentialsId 'rjlupinek-dockerhub'
                 args '-e JENKINS_HOME=$JENKINS_HOME -e AWS_DEFAULT_REGION="us-east-1"'
@@ -28,21 +29,16 @@ def call () {
             stage('verify dependencies') {
                 steps {
                     script {
-                        sh "which aws"
                         sh "which packer"
-                        sh "which python"
                     }
                 }
             }
             stage('run packer build') {
                 steps {
                     script {
-                        def runPackerShellScript = libraryResource 'hardenAMI/run-packer-build.sh'
-                        writeFile(file:'run-packer-build.sh', text:runPackerShellScript)
                         sh "pwd"
                         sh "ls"
-                        sh "aws sts get-caller-identity" // verify the build runtime has sufficent previledge in its IAM Role
-                        sh "bash ./run-packer-build.sh"
+                        sh "packer build -var-file ./packer/packer-var-file.json ./packer/packer.json"
                     }
                 }
             }
