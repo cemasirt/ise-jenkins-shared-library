@@ -28,13 +28,12 @@ def call () {
             stage('run packer build') {
                 steps {
                     script {
-                        def runPackerShellScript = libraryResource 'hardenAMI/run-packer.sh'
-                        writeFile(file:'run-packer.sh', text:runPackerShellScript)
+                        def runPackerShellScript = libraryResource 'hardenAMI/run-packer-build.sh'
+                        writeFile(file:'run-packer-build.sh', text:runPackerShellScript)
                         sh "pwd"
                         sh "ls"
-                        // sh "aws sts get-caller-identity" // verify the build runtime has sufficent previledge in its IAM Role
-                        // sh "echo JENKINS_HOME=${JENKINS_HOME}"
-                        // sh "bash ./packer/run-packer-build.sh"
+                        sh "aws sts get-caller-identity" // verify the build runtime has sufficent previledge in its IAM Role
+                        sh "bash ./run-packer-build.sh"
                     }
                 }
             }
