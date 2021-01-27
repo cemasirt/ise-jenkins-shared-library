@@ -31,7 +31,7 @@ def call () {
                     script {
                         sh """
                         echo "install wget"
-                        apk add wget -y
+                        apk add wget
                         which wget
 
                         PACKER_VERSION="1.6.6"
