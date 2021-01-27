@@ -36,10 +36,10 @@ def call () {
 
                         PACKER_VERSION="1.6.6"
                         echo "install packer"
-                        wget "https://releases.hashicorp.com/packer/\$\{PACKER_VERSION\}/packer_\$\{PACKER_VERSION\}_linux_amd64.zip" -P "\$\{HOME\}" -q
-                        unzip "\$\{HOME\}/packer_\$\{PACKER_VERSION\}_linux_amd64.zip" -d "\$\{HOME\}"
-                        mv "\$\{HOME\}/packer" "/usr/local/bin"
-                        rm "\$\{HOME\}/packer_\$\{PACKER_VERSION\}_linux_amd64.zip"
+                        wget "https://releases.hashicorp.com/packer/\${PACKER_VERSION}/packer_\${PACKER_VERSION}_linux_amd64.zip" -P "\${HOME}" -q
+                        unzip "\${HOME}/packer_\${PACKER_VERSION}_linux_amd64.zip" -d "\${HOME}"
+                        mv "\${HOME}/packer" "/usr/local/bin"
+                        rm "\${HOME}/packer_\${PACKER_VERSION}_linux_amd64.zip"
                         which packer
                         """
                     }
