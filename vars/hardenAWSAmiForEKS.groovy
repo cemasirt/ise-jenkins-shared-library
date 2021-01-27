@@ -7,7 +7,6 @@ Assuming that the AMI hardening project having following code structure:
 /ansible/playbook.yml
 /packer
 /packer/packer-var-file.json
-/packer/build_packer_var_file.py
 /packer/packer.json
 
 Example usage: https://github.com/GSA/odp-packer-amazon-linux2-eks
@@ -18,7 +17,6 @@ def call () {
             // use a container with aws-cli, ansible, packer, python pre-installed
             // reference: https://www.jenkins.io/doc/book/pipeline/syntax/
             docker {
-                // image 'sanhe/cicd:aws-ultimate@sha256:7cdb672755b8e743e9f35d2719b0111f9750c92682baddaf2670f5ad065d7164'
                 image 'jenkins/jnlp-agent-python'
                 registryUrl 'https://registry.hub.docker.com'
                 registryCredentialsId 'rjlupinek-dockerhub'
