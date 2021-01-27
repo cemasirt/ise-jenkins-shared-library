@@ -34,8 +34,8 @@ def call () {
                         apk add wget
                         which wget
 
-                        PACKER_VERSION="1.6.6"
                         echo "install packer"
+                        PACKER_VERSION="1.6.6"
                         wget "https://releases.hashicorp.com/packer/\${PACKER_VERSION}/packer_\${PACKER_VERSION}_linux_amd64.zip" -P "\${HOME}" -q
                         unzip "\${HOME}/packer_\${PACKER_VERSION}_linux_amd64.zip" -d "\${HOME}"
                         mv "\${HOME}/packer" "/usr/local/bin"
@@ -50,7 +50,7 @@ def call () {
                     script {
                         sh "pwd"
                         sh "ls"
-                        // sh "packer build -var-file ./packer/packer-var-file.json ./packer/packer.json"
+                        sh "packer build -var-file ./packer/packer-var-file.json ./packer/packer.json"
                     }
                 }
             }
