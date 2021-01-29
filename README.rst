@@ -26,9 +26,9 @@ Parameters reference:
 Source Code: `hardenDockerImage.groovy <./vars/hardenDockerImage.groovy>`_
 
 
-hardenAWSAmiForEKS
+hardenAWSAmi
 ------
 
 This library allows you to harden a AWS AMI for EKS. Basically it should be only a packer build that execute ansible on remote localhost. Detailed logics are defined in ``./packer/run-packer-build.sh`` in external Git Repository alone with your ansible and packer code.
 
-Source Code: `hardenAWSAmiForEKS.groovy <./vars/hardenAWSAmiForEKS.groovy>`_
+Source Code: `hardenAWSAmiForEKS.groovy <./vars/hardenAWSAmi.groovy>`_
