@@ -26,7 +26,7 @@ def call(
         agent {
             //Select an agent node with the labels Centos and small.
             node {
-                label 'ubuntu && docker'
+                label 'docker'
             }
         }
         stages {
